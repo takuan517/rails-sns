@@ -1,12 +1,15 @@
-<h3>ユーザーリスト</h3>
-
+<div class="box2">
+    <span class="box-title">ユーザーリスト</span>
 <ul class="list-group">
 <% @user.each do |user| %>
 <p><%= link_to user.email,user_path(user.id) %></p>
 <% end %>
 </ul>
+</div>
 
 <div class="box2">
     <span class="box-title">このアプリの使い方</span>
     ①ログイン or 新規ユーザー登録をする<br>②新規投稿ページに移動<br>③ファイル or テキストを入力<br>④投稿一覧ページで他のユーザの投稿を見る or コメントする
 </div>
+
+
