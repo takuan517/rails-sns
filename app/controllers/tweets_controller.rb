@@ -8,7 +8,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @user.tweets.create(tweet_params)
     redirect_to tweets_index_path
   end
