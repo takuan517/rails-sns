@@ -15,7 +15,7 @@
   <div id="gnavi" class="collapse navbar-collapse">
   <ul class="nav navbar-nav navbar-right">
   <li><%= link_to "タイムライン",tweets_index_path %></li>
-  <li><%= link_to "新規投稿",tweets_new_path %></li>
+  <li><%= link_to "新規投稿",tweets_new_path(user_id: @current_user) %></li>
   <% if logged_in? %>
   <li><%= link_to @current_user.email + "さんでログイン中"%></li>
   <li><%= link_to "ログアウト",session_path(@user),method: :delete %></li>
