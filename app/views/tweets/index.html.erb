@@ -4,6 +4,9 @@
   <li class="list-group-item">
     <span class="badge text-danger"><%= link_to "[削除]",tweets_destroy_path(:id=>tweet.id) %></span>
     <%= tweet.body %>
+    <% tweet.image.each do |image| %>
+      <%= image_tag image %>
+      <% end %>
   </li>
   <% end %>
 </ul>
