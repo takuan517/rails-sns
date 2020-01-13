@@ -13,16 +13,21 @@
 <div class="box2">
     <span class="box-title">タイムライン</span>
     <ul class="list-group-2">
-    <% @tweet.each do |tweet| %>
-      <li class="list-group-item">
-        <span class="badge text-danger"><%= link_to "[削除]",tweets_destroy_path(:id=>tweet.id) %></span>
-        <p><%= tweet.body %></p>
-        <% tweet.image.each do |image| %>
-          <object data="<%= url_for image %>" type="application/pdf" width="100%" height="600"></object>
-          <% end %>
-    </li>
-    <% end %>
-  </ul>
+  <% @tweet.each do |tweet| %>
+    <li class="list-group-item">
+      <span class="badge text-danger"><%= link_to "[削除]",tweets_destroy_path(:id=>tweet.id) %></span>
+      <p><%= tweet.body %></p>
+      <% tweet.image.each do |image| %>
+        <% case image.blob.content_type
+        when "image/gif", "image/jpeg", "image/png" %>
+          <%= image_tag image %>
+        <% when "application/pdf" %>
+          <object data="<%= url_for image %>" type="application/pdf" width="100%" height="600"></object>  
+        <% end %>
+      <% end %>
+  </li>
+  <% end %>
+</ul>
 </div>
 
 

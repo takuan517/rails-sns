@@ -2,6 +2,6 @@
 <%= form_for([@user, @user.tweets.build]) do |f| %>
 <p><%= f.label :body,"投稿内容" %></p>
 <p><%= f.text_area :body %></p>
-<p><%= f.file_field :image %></p>
+<p><%= f.file_field :image, multiple: true %></p>
 <p><%= f.submit "投稿", class: "btn btn-primary" %></p>
 <% end %>
