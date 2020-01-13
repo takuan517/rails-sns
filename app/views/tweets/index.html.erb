@@ -1,11 +1,11 @@
 <h3 class="page-header">タイムライン</h3>
 <ul class="list-group-2">
   <% @tweet.each do |tweet| %>
-  <li class="list-group-item">
-    <span class="badge text-danger"><%= link_to "[削除]",tweets_destroy_path(:id=>tweet.id) %></span>
-    <%= tweet.body %>
-    <% tweet.image.each do |image| %>
-      <%= image_tag image %>
+    <li class="list-group-item">
+      <span class="badge text-danger"><%= link_to "[削除]",tweets_destroy_path(:id=>tweet.id) %></span>
+      <p><%= tweet.body %></p>
+      <% tweet.image.each do |image| %>
+        <object data="<%= url_for image %>" type="application/pdf" width="800" height="600"></object>
       <% end %>
   </li>
   <% end %>

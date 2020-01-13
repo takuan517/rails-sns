@@ -1,4 +1,10 @@
 <div class="box2">
+    <span class="box-title">アプリの目的</span>
+    このアプリは自分の作ったスライドやレポートをと投稿して他の人からフィードバックをもらえるサービスです
+</div>
+
+
+<div class="box2">
     <span class="box-title">このアプリの使い方</span>
     ①ログイン or 新規ユーザー登録をする<br>②新規投稿ページに移動<br>③ファイル or テキストを入力<br>④タイムラインで他のユーザーの投稿にコメントする
 </div>
@@ -6,18 +12,19 @@
 
 <div class="box2">
     <span class="box-title">タイムライン</span>
-<ul class="list-group-2">
-  <% @tweet.each do |tweet| %>
-  <li class="list-group-item">
-    <span class="badge text-danger"><%= link_to "[削除]",tweets_destroy_path(:id=>tweet.id) %></span>
-    <%= tweet.body %>
-    <% tweet.image.each do |image| %>
-      <%= image_tag image %>
-      <% end %>
-  </li>
-  <% end %>
-</ul>
+    <ul class="list-group-2">
+    <% @tweet.each do |tweet| %>
+      <li class="list-group-item">
+        <span class="badge text-danger"><%= link_to "[削除]",tweets_destroy_path(:id=>tweet.id) %></span>
+        <p><%= tweet.body %></p>
+        <% tweet.image.each do |image| %>
+          <object data="<%= url_for image %>" type="application/pdf" width="800" height="600"></object>
+          <% end %>
+    </li>
+    <% end %>
+  </ul>
 </div>
+
 
 <div class="box2">
     <span class="box-title">ユーザーリスト</span>
